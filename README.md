@@ -1,4 +1,4 @@
-$ git clone ...  
+$ git clone git@github.com:aceqbaceq/sigcatch.git  
 $ cd sigtach  
 $ mkdir -p  ./sigcatch/vol-1  
 $ docker build -t sigcatch .  
