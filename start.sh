@@ -1,14 +1,31 @@
 #!/bin/bash
-trap sigterm_handler2 SIGINT
 
 
-function sigterm_handler2()
+trap term_handler SIGTERM
+
+function term_handler()
 {
-   echo "Ctrl+C is catched!"
-   echo "Ctrl+C" > /tmp2/ctrl-c.txt
+   echo "SIGTERM is catched!"
+   echo "sigterm" > /tmp2/sigterm.txt
+   exit 0
 
 }
 
 
-echo Starting script
-sleep 100000
+
+trap int_handler SIGINT
+
+function int_handler()
+{
+   echo "SIGINT is catched!"
+   echo "sigint" > /tmp2/sigint.txt
+   exit 0
+
+}
+
+
+
+
+sleep 100000 &
+wait
+
